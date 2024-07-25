@@ -1,0 +1,90 @@
+<aside lang="en" xmlns:th="http://www.thymeleaf.org" class="main-sidebar sidebar-dark-primary elevation-4" th:fragment="sidebar-content" >
+    <link rel="stylesheet" th:href="@{/plugins/fontawesome-free/css/all.min.css}">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" th:href="@{/plugins/overlayScrollbars/css/OverlayScrollbars.min.css}">
+    <!-- Theme style -->
+    <link rel="stylesheet" th:href="@{/dist/css/adminlte.min.css}">
+    <!-- Brand Logo -->
+    <a th:href="@{/index3.html}" class="brand-link">
+        <img th:src="@{/dist/img/AdminLTELogo.png}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">Quản lí tin tức</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user (optional) -->
+
+
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+                     with font-awesome or any other icon font library -->
+                <li class="nav-item">
+                    <a th:href="@{/admin}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Trang Chủ
+                        </p>
+                    </a>
+                </li>
+              <!--  <li class="nav-item menu-open">
+                    <a th:href="@{/admin/TaiKhoan}" class="nav-link">
+                        <i class="nav-icon fas fa-copy"></i>
+                        <p>
+                            Quản lí tài khoản
+                        </p>
+                    </a>
+
+                </li>
+                -->
+                <li class="nav-item">
+                    <a th:href="@{#}" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>
+                            Quản lí tin tức
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a th:href="@{'/admin/chude'}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Chủ đề</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a th:href="@{/admin/TinTuc}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tin tức</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--<li class="nav-item">
+                    <a th:href="@{#}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Đăng xuất
+
+                        </p>
+                    </a>
+
+                </li>
+-->
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+    <script th:src="@{/plugins/jquery/jquery.min.js}"></script>
+    <!-- Bootstrap 4 -->
+    <script th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <!-- overlayScrollbars -->
+    <script th:src="@{/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js}"></script>
+    <!-- AdminLTE App -->
+    <script th:src="@{/dist/js/adminlte.min.js}"></script>
+    <!-- AdminLTE for demo purposes -->
+
+</aside>
