@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Tin tức</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/owl.carousel.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/ticker-style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/flaticon.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/slicknav.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/animate.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/magnific-popup.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/fontawesome-all.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/themify-icons.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/slick.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/nice-select.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+
+    <script type="text/javascript" th:src="@{/js/vendor/modernizr-3.5.0.min.js}"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script type="text/javascript" th:src="@{/js/vendor/jquery-1.12.4.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <!-- Jquery Mobile Menu -->
+    <script type="text/javascript" th:src="@{/js/jquery.slicknav.min.js}"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script type="text/javascript" th:src="@{/js/owl.carousel.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/slick.min.js}"></script>
+    <!-- Date Picker -->
+    <script type="text/javascript" th:src="@{/js/gijgo.min.js}"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script type="text/javascript" th:src="@{/js/wow.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/animated.headline.js}"></script>
+    <script type="text/javascript" th:src="@{/js/jquery.magnific-popup.js}"></script>
+
+    <!-- Scrollup, nice-select, sticky -->
+    <script type="text/javascript" th:src="@{/js/jquery.scrollUp.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/jquery.nice-select.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/jquery.sticky.js}"></script>
+
+    <!-- contact js -->
+    <script type="text/javascript" th:src="@{/js/contact.js}"></script>
+    <script type="text/javascript" th:src="@{/js/jquery.form.js}"></script>
+    <script type="text/javascript" th:src="@{/js/jquery.validate.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/mail-script.js}"></script>
+    <script type="text/javascript" th:src="@{/js/jquery.ajaxchimp.min.js}"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script type="text/javascript" th:src="@{/js/plugins.js}"></script>
+    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+</head>
+<body>
+<div th:replace="home/Header :: header-content"></div>
+
+<main>
+    <div class="trending-area fix pt-25 gray-bg">
+        <div class="container">
+            <div class="trending-main">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <!-- Trending Top -->
+                        <div class="slider-active">
+                            <!-- Single -->
+                            <div class="single-slider" th:each="c : ${firstHalf}">
+                                <div class="trending-top mb-30">
+                                    <div class="trend-top-img">
+                                        <img th:src="@{'/img/'+${c.anhDaiDien}}" alt="">
+                                        <div class="trend-top-cap">
+                                            <span class="bgr" data-animation="fadeInUp" data-delay=".2s" data-duration="1000ms">
+                                                <th:block th:each="d : ${lstChuDe}">
+                                                    <th:block th:if="${d.maChuDe == c.maChuDe}">
+                                                        <tr>
+                                                            <td th:text="${d.tenChuDe}"></td>
+                                                        </tr>
+                                                    </th:block>
+                                                </th:block>
+                                            </span>
+                                            <h2><a th:href="@{'/TrangChiTietTinTuc/'+${c.maTinTuc}}" data-animation="fadeInUp" data-delay=".4s" data-duration="1000ms">[[${c.tieuDe}]]</a></h2>
+                                            <p data-animation="fadeInUp" data-delay=".6s" data-duration="1000ms">[[${c.tacGia}]]   -   [[${c.ngayDang}]]</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right content -->
+                    <div class="col-lg-4">
+                        <!-- Trending Top -->
+                        <div class="row">
+                            <div class="col-lg-12 col-md-6 col-sm-6" th:each="c : ${secondHalf}">
+                                <div class="trending-top mb-30">
+                                    <div class="trend-top-img">
+                                        <img th:src="@{'/img/'+${c.anhDaiDien}}" alt="">
+                                        <div class="trend-top-cap trend-top-cap2">
+                                            <span class="bgb">
+                                                <th:block th:each="d : ${lstChuDe}">
+                                                    <th:block th:if="${d.maChuDe == c.maChuDe}">
+                                                        <tr>
+                                                            <td th:text="${d.tenChuDe}"></td>
+                                                        </tr>
+                                                    </th:block>
+                                                </th:block>
+                                            </span>
+                                            <h2><a th:href="@{'/TrangChiTietTinTuc/'+${c.maTinTuc}}">[[${c.tieuDe}]]</a></h2>
+                                            <p>[[${c.tacGia}]]   -   [[${c.ngayDang}]]</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:replace="home/Footer :: footer-content"></div>
+</body>
+</html>
